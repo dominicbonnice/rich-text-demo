@@ -4,6 +4,7 @@ const Page = ({ data }) => {
 
 	return (
 		<div>
+			<nav><a href="/">« Go back</a></nav>
 			<h1>{data.contentfulPage.title}</h1>
 			<div dangerouslySetInnerHTML={{__html: data.contentfulPage.copy.childContentfulRichText.html}} />
 
