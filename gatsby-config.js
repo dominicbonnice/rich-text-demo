@@ -1,4 +1,4 @@
-const { BLOCKS } = require('@contentful/rich-text-types')
+const { BLOCKS, INLINES } = require('@contentful/rich-text-types')
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -38,6 +38,16 @@ module.exports = {
               }" alt="${
                 node.data.target.fields.title['en-US']
               }"/>`
+            },
+            [INLINES.EMBEDDED_ENTRY]: node => {
+              const contentType = node.data.target.sys.contentType.sys.id;
+              if (contentType == 'inlineMicrocopy') {
+                return `<span>
+                    ${node.data.target.fields.value['en-US']}
+                  <span/>`
+              } else {
+                return ''
+              }
             }
           },
         },
