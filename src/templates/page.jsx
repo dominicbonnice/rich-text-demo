@@ -1,14 +1,18 @@
 import React from "react";
+import Layout from "../components/layout"
+import Helmet from 'react-helmet';
 
 const Page = ({ data }) => {
 
 	return (
-		<div>
-			<nav><a href="/">« Go back</a></nav>
-			<h1>{data.contentfulPage.title}</h1>
-			<div dangerouslySetInnerHTML={{__html: data.contentfulPage.copy.childContentfulRichText.html}} />
-
-		</div>
+		<Layout>
+			<Helmet title={data.contentfulPage.title} />
+			<div>
+				<nav><a href="/">« Go back</a></nav>
+				<h1>{data.contentfulPage.title}</h1>
+				<div dangerouslySetInnerHTML={{__html: data.contentfulPage.copy.childContentfulRichText.html}} />
+			</div>
+		</Layout>
 	)
 }
 

@@ -1,4 +1,5 @@
 import React from "react"
+import Layout from "../components/layout"
 
 const Entry = ({ entry }) => {
   return (
@@ -9,16 +10,18 @@ const Entry = ({ entry }) => {
 }
 
 const IndexPage = ({ data }) => (
-  <div>
-    <h1>Welcome</h1>
-    <ul>
-      {
-        data.allContentfulPage.edges.map(
-          (edge, i) => <Entry entry={edge.node} key={i} />
-        )
-      }
-    </ul>     
-  </div>
+  <Layout>
+    <div>
+      <h1>Welcome</h1>
+      <ul>
+        {
+          data.allContentfulPage.edges.map(
+            (edge, i) => <Entry entry={edge.node} key={i} />
+          )
+        }
+      </ul>     
+    </div>
+  </Layout>
 )
 
 export default IndexPage

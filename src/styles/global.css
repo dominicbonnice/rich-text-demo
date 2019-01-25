@@ -1,0 +1,42 @@
+body {
+	background-color: #f7f9fa;
+	color: #333;
+	font-family: Helvetica, sans-serif;
+	line-height: 1.2;
+	margin: 0;
+}
+
+img {
+	border: 1px solid #ddd;
+	display: block;
+	margin: 1em 0;
+	max-width: 100%;
+}
+
+a,
+a:visited {
+	color: #3c80cf;
+}
+
+a:hover,
+a:active {
+	color: #2a3039;
+}
+
+.container {
+	background-color: #fff;
+	max-width: 50em;
+	margin: 0 auto;
+	padding: 1em 2em;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    font-size: 18px;
+		line-height: 1.5;
+  }
+
+  img {
+		max-width: 80%;
+  }
+}
