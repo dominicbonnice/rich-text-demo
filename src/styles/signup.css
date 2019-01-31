@@ -1,0 +1,43 @@
+.signup {
+	
+}
+
+.signup__input-text,
+.signup__submit {
+	border: 0;
+	border-radius: 2em;
+	font-family: "Avenir Next W01", sans-serif;
+	padding: .7em 2em;
+	font-size: 14px;
+}
+
+.signup__input-text {
+	border: 1px solid #EEF2F4;
+	padding: .7em 1em;
+	min-width: 20em;
+	margin-right: .5em;
+}
+
+.signup__input-text:hover,
+.signup__input-text:focus {
+	border-color: #8091A5;
+}
+
+.signup__input-honeypot {
+	position: absolute; 
+	left: -5000px;	
+}
+
+.signup__submit {
+	border: 0;
+	background-color: #5C9FEE;
+	background-image: linear-gradient(#5C9FEE, #4B8FE2);
+	color: #fff;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.signup__submit:hover,
+.signup__submit:focus {
+	background-image: none;
+}

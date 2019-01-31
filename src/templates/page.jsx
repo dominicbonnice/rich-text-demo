@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../components/layout"
+import Signup from "../components/signup"
 import Helmet from 'react-helmet';
 
 const Page = ({ data }) => {
@@ -11,6 +12,7 @@ const Page = ({ data }) => {
 				<nav><a href="/">« Go back</a></nav>
 				<h1>{data.contentfulPage.title}</h1>
 				<div dangerouslySetInnerHTML={{__html: data.contentfulPage.copy.childContentfulRichText.html}} />
+				<Signup />
 			</div>
 		</Layout>
 	)
