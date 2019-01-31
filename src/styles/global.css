@@ -1,5 +1,4 @@
 body {
-	background-color: #f7f9fa;
 	color: #212F3E;
 	font-family: "Avenir Next W01", sans-serif;
 	font-size: 18px;
@@ -48,11 +47,32 @@ a:active {
 	padding: 1em;
 }
 
+header {
+	background: url('images/header-image.jpg') no-repeat center bottom;
+	background-size: cover;
+	color: white;
+
+}
+
+header .title {
+	padding-top: 3em;
+	padding-bottom: 15em;
+}
+
 @media only screen and (min-width: 600px) {
   body {
     font-size: 18px;
 		line-height: 1.5;
   }
+
+	header {
+		min-height: 35em;
+	}
+
+	header .title {
+		text-align: center;
+		padding: 5em;
+	}
 
   img {
 		max-width: 80%;

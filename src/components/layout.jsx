@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 export default ({ children }) => (
   <div>
   	<Helmet title={'Rich Text Demo'} />
-  	<div className="container">
+  	<div>
     	{children}
     </div>
   </div>

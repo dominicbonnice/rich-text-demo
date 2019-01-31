@@ -8,12 +8,14 @@ const Page = ({ data }) => {
 	return (
 		<Layout>
 			<Helmet title={data.contentfulPage.title} />
-			<div>
+			<header>
 				<nav><a href="/">« Go back</a></nav>
-				<h1>{data.contentfulPage.title}</h1>
-				<div dangerouslySetInnerHTML={{__html: data.contentfulPage.copy.childContentfulRichText.html}} />
-				<Signup />
-			</div>
+				<div class="title container">
+					<h1>{data.contentfulPage.title}</h1>
+				</div>
+			</header>
+			<div class="body container" dangerouslySetInnerHTML={{__html: data.contentfulPage.copy.childContentfulRichText.html}} />
+			<Signup />
 		</Layout>
 	)
 }
@@ -32,4 +34,3 @@ export const PageQuery = graphql`
 	  }
 	}
 `;
-
