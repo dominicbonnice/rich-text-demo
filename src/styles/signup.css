@@ -1,5 +1,6 @@
 .signup {
-	
+	background: #F7F9FA;
+	padding: 4em 0;
 }
 
 .signup__input-text,
@@ -24,8 +25,8 @@
 }
 
 .signup__input-honeypot {
-	position: absolute; 
-	left: -5000px;	
+	position: absolute;
+	left: -5000px;
 }
 
 .signup__submit {
