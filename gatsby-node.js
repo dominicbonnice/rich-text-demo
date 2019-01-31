@@ -5,20 +5,37 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-				allContentfulPage {
-			    edges {
-			      node {
-			      	id
-			        slug
-			      }
-			    }
-			  }
+        allContentfulPressRelease {
+          edges {
+            node {
+              id
+              slug
+            }
+          }
+        }
+        allContentfulSalesDemoPage {
+          edges {
+            node {
+              id
+              slug
+            }
+          }
+        }
       }
     `).then(result => {
-      result.data.allContentfulPage.edges.forEach(({ node }) => {
+      result.data.allContentfulSalesDemoPage.edges.forEach(({ node }) => {
         createPage({
-          path: '/pages/'+node.slug,
-          component: path.resolve(`./src/templates/page.jsx`),
+          path: '/sales-demo-pages/'+node.slug,
+          component: path.resolve(`./src/templates/salesDemoPage.jsx`),
+          context: {
+            id: node.id
+          },
+        })
+      })
+      result.data.allContentfulPressRelease.edges.forEach(({ node }) => {
+        createPage({
+          path: '/press-releases/'+node.slug,
+          component: path.resolve(`./src/templates/pressRelease.jsx`),
           context: {
             id: node.id
           },

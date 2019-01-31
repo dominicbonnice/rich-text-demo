@@ -1,22 +1,31 @@
 import React from "react"
 import Layout from "../components/layout"
 
-const Entry = ({ entry }) => {
+const Entry = ({ entry, type }) => {
   return (
     <li>
-      <a href={'/pages/' + entry.slug}>{entry.title}</a>
+      <a href={'/' + type + '/' + entry.slug}>{entry.title}</a>
     </li>
   )
 }
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <div>
+    <div className="container">
       <h1>Welcome</h1>
+      <h2>Press Releases</h2>
       <ul>
         {
-          data.allContentfulPage.edges.map(
-            (edge, i) => <Entry entry={edge.node} key={i} />
+          data.allContentfulPressRelease.edges.map(
+            (edge, i) => <Entry entry={edge.node} type='press-releases' key={i} />
+          )
+        }
+      </ul>  
+      <h2>Sales Demo Pages</h2>
+      <ul>
+        {
+          data.allContentfulSalesDemoPage.edges.map(
+            (edge, i) => <Entry entry={edge.node} type='sales-demo-pages' key={i} />
           )
         }
       </ul>     
@@ -28,7 +37,21 @@ export default IndexPage
 
 export const Pages = graphql`
 query Pages {
-  allContentfulPage (
+  allContentfulPressRelease (
+    filter: {
+      title: { 
+        ne:"IGNORE" 
+      }
+    }
+  ) {
+    edges {
+      node {
+        title
+        slug
+      }
+    }
+  }
+  allContentfulSalesDemoPage (
     filter: {
       title: { 
         ne:"IGNORE" 

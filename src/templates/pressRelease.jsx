@@ -3,28 +3,28 @@ import Layout from "../components/layout"
 import Signup from "../components/signup"
 import Helmet from 'react-helmet';
 
-const Page = ({ data }) => {
+const PressRelease = ({ data }) => {
 
 	return (
 		<Layout>
-			<Helmet title={data.contentfulPage.title} />
+			<Helmet title={data.contentfulPressRelease.title} />
 			<header>
 				<nav><a href="/">« Go back</a></nav>
 				<div class="title container">
-					<h1>{data.contentfulPage.title}</h1>
+					<h1>{data.contentfulPressRelease.title}</h1>
 				</div>
 			</header>
-			<div class="body container" dangerouslySetInnerHTML={{__html: data.contentfulPage.copy.childContentfulRichText.html}} />
+			<div class="body container" dangerouslySetInnerHTML={{__html: data.contentfulPressRelease.copy.childContentfulRichText.html}} />
 			<Signup />
 		</Layout>
 	)
 }
 
-export default Page
+export default PressRelease
 
 export const PageQuery = graphql`
-	query Page($id: String!) {
-	  contentfulPage(id: { eq: $id }) {
+	query PressRelease($id: String!) {
+	  contentfulPressRelease(id: { eq: $id }) {
 	    title
 	    copy {
         childContentfulRichText {
