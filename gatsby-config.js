@@ -1,4 +1,5 @@
 const { BLOCKS, INLINES } = require('@contentful/rich-text-types')
+const urlParser = require('js-video-url-parser');
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -44,19 +45,19 @@ module.exports = {
             },
             [BLOCKS.EMBEDDED_ENTRY]: node => {
               const contentType = node.data.target.sys.contentType.sys.id;
+              const entry = node.data.target;
               if (contentType == 'blockSignUp') {
-                const signUpForm = node.data.target;
                 return `
                   <div class="signup">
                     <form
                       class="container"
-                      action="${signUpForm.fields.mailchimpFormAction['en-US']}"
+                      action="${entry.fields.mailchimpFormAction['en-US']}"
                       method="post"
                       id="mc-embedded-subscribe-form"
                       name="mc-embedded-subscribe-form"
                       target="_blank">
-                      <h2>${signUpForm.fields.title['en-US']}</h2>
-                      <p>${signUpForm.fields.description['en-US']}</p>
+                      <h2>${entry.fields.title['en-US']}</h2>
+                      <p>${entry.fields.description['en-US']}</p>
                       <div>
                         <input
                           type="email"
@@ -79,6 +80,15 @@ module.exports = {
                       </div>
                     </form>
                   </div>`
+              } else if (contentType == 'blockVideo') {
+                const videoInfo = urlParser.parse(entry.fields.url['en-US']);
+                if (videoInfo.provider == 'youtube') {
+                  return `
+                    <iframe src="https://www.youtube.com/embed/${videoInfo.id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                } else if (videoInfo.provider == 'vimeo') {
+                  return `
+                    <iframe src="https://player.vimeo.com/video/${videoInfo.id}?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`
+                }
               } else {
                 return ''
               }

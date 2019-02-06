@@ -23,7 +23,8 @@ h2 {
 }
 
 
-img {
+img,
+iframe {
 	border: 1px solid #ddd;
 	display: block;
 	margin: 1em 0;
