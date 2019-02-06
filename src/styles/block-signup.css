@@ -1,5 +1,6 @@
-.signup {
-	background: #F7F9FA;
+.block-signup {
+	background: #1D75CC;
+	color: #fff;
 	padding: 1em 0;
 	width: 100vw;
   position: relative;
@@ -9,8 +10,8 @@
   margin-right: -50vw;
 }
 
-.signup__input-text,
-.signup__submit {
+.block-signup__input-text,
+.block-signup__submit {
 	border: 0;
 	border-radius: 2em;
 	font-family: "Avenir Next W01", sans-serif;
@@ -19,7 +20,7 @@
 	width: 100%;
 }
 
-.signup__input-text {
+.block-signup__input-text {
 	border: 1px solid #EEF2F4;
 	box-sizing: border-box;
 	padding: .7em 1em;
@@ -28,42 +29,42 @@
 	margin-right: .5em;
 }
 
-.signup__input-text:hover,
-.signup__input-text:focus {
+.block-signup__input-text:hover,
+.block-signup__input-text:focus {
 	border-color: #8091A5;
 }
 
-.signup__input-honeypot {
+.block-signup__input-honeypot {
 	position: absolute;
 	left: -5000px;
 }
 
-.signup__submit {
+.block-signup__submit {
 	border: 0;
-	background-color: #5C9FEE;
-	background-image: linear-gradient(#5C9FEE, #4B8FE2);
+	background-color: #5BC098;
+	background-image: linear-gradient(#5BC098, #459575);
 	color: #fff;
 	cursor: pointer;
 	font-weight: bold;
 }
 
-.signup__submit:hover,
-.signup__submit:focus {
+.block-signup__submit:hover,
+.block-signup__submit:focus {
 	background-image: none;
 }
 
 
 @media only screen and (min-width: 600px) {
-	.signup {
+	.block-signup {
 		padding: 4em 0;
 	}
 
-	.signup__input-text,
-	.signup__submit {
+	.block-signup__input-text,
+	.block-signup__submit {
 		width: auto;
 	}
 
-	.signup__input-text {
+	.block-signup__input-text {
 		margin-bottom: 0;
 		padding: .7em 1em;
 	}

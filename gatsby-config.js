@@ -48,7 +48,7 @@ module.exports = {
               const entry = node.data.target;
               if (contentType == 'blockSignUp') {
                 return `
-                  <div class="signup">
+                  <div class="block-signup">
                     <form
                       class="container"
                       action="${entry.fields.mailchimpFormAction['en-US']}"
@@ -63,19 +63,19 @@ module.exports = {
                           type="email"
                           placeholder="Your Email address (required)"
                           name="EMAIL"
-                          class="signup__input-text"
+                          class="block-signup__input-text"
                           id="mce-EMAIL" />
                         <input
                           type="text"
                           name="b_64719f4e18541c12bab05be89_be74f09e93"
                           tabindex="-1"
-                          class="signup__input-honeypot"
+                          class="block-signup__input-honeypot"
                           value="" />
                         <input
                           type="submit"
                           value="Subscribe"
                           name="subscribe"
-                          class="signup__submit"
+                          class="block-signup__submit"
                           id="mc-embedded-subscribe"/>
                       </div>
                     </form>
@@ -89,6 +89,21 @@ module.exports = {
                   return `
                     <iframe src="https://player.vimeo.com/video/${videoInfo.id}?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`
                 }
+              } else if (contentType == 'page') {
+                const entry = node.data.target;
+                return `
+                  <div class="block-entry">
+                    <div class="container">
+                      <div class="block-entry__label">See this Press Release too:</div>
+                      <div class="block-entry__teaser">
+                        👉 
+                        <a class="block-entry__title" href="/press-releases/${entry.fields.slug['en-US']}">
+                        ${entry.fields.title['en-US']}
+                      </a>
+                      </div>
+                    </div>
+                  </div>
+                  `
               } else {
                 return ''
               }
