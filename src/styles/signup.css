@@ -1,6 +1,12 @@
 .signup {
 	background: #F7F9FA;
-	padding: 4em 0;
+	padding: 1em 0;
+	width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .signup__input-text,
@@ -10,12 +16,15 @@
 	font-family: "Avenir Next W01", sans-serif;
 	padding: .7em 2em;
 	font-size: 14px;
+	width: 100%;
 }
 
 .signup__input-text {
 	border: 1px solid #EEF2F4;
+	box-sizing: border-box;
 	padding: .7em 1em;
 	min-width: 20em;
+	margin-bottom: 1em;
 	margin-right: .5em;
 }
 
@@ -41,4 +50,21 @@
 .signup__submit:hover,
 .signup__submit:focus {
 	background-image: none;
+}
+
+
+@media only screen and (min-width: 600px) {
+	.signup {
+		padding: 4em 0;
+	}
+
+	.signup__input-text,
+	.signup__submit {
+		width: auto;
+	}
+
+	.signup__input-text {
+		margin-bottom: 0;
+		padding: .7em 1em;
+	}
 }

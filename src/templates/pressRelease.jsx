@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../components/layout"
-import Signup from "../components/signup"
 import Helmet from 'react-helmet';
 
 const PressRelease = ({ data }) => {
@@ -15,7 +14,6 @@ const PressRelease = ({ data }) => {
 				</div>
 			</header>
 			<div class="body container" dangerouslySetInnerHTML={{__html: data.contentfulPressRelease.copy.childContentfulRichText.html}} />
-			<Signup />
 		</Layout>
 	)
 }

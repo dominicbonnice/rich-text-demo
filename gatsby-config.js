@@ -37,7 +37,48 @@ module.exports = {
               if (contentType == 'inlineMicrocopy') {
                 return `<span>
                     ${node.data.target.fields.value['en-US']}
-                  <span/>`
+                  </span>`
+              } else {
+                return ''
+              }
+            },
+            [BLOCKS.EMBEDDED_ENTRY]: node => {
+              const contentType = node.data.target.sys.contentType.sys.id;
+              if (contentType == 'blockSignUp') {
+                const signUpForm = node.data.target;
+                return `
+                  <div class="signup">
+                    <form
+                      class="container"
+                      action="${signUpForm.fields.mailchimpFormAction['en-US']}"
+                      method="post"
+                      id="mc-embedded-subscribe-form"
+                      name="mc-embedded-subscribe-form"
+                      target="_blank">
+                      <h2>${signUpForm.fields.title['en-US']}</h2>
+                      <p>${signUpForm.fields.description['en-US']}</p>
+                      <div>
+                        <input
+                          type="email"
+                          placeholder="Your Email address (required)"
+                          name="EMAIL"
+                          class="signup__input-text"
+                          id="mce-EMAIL" />
+                        <input
+                          type="text"
+                          name="b_64719f4e18541c12bab05be89_be74f09e93"
+                          tabindex="-1"
+                          class="signup__input-honeypot"
+                          value="" />
+                        <input
+                          type="submit"
+                          value="Subscribe"
+                          name="subscribe"
+                          class="signup__submit"
+                          id="mc-embedded-subscribe"/>
+                      </div>
+                    </form>
+                  </div>`
               } else {
                 return ''
               }
