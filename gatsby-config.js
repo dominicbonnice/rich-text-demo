@@ -43,6 +43,15 @@ module.exports = {
                 return ''
               }
             },
+            [INLINES.ENTRY_HYPERLINK]: node => {
+              const contentType = node.data.target.sys.contentType.sys.id;
+              const entry = node.data.target;
+              if (contentType == 'page') {
+                return `<a href="/press-releases/${entry.fields.slug['en-US']}">${entry.fields.title['en-US']}</a>`
+              } else if (contentType == 'demoPage') {
+                return `<a href="/sales-demo-pages/${entry.fields.slug['en-US']}">${entry.fields.title['en-US']}</a>`
+              }
+            },
             [BLOCKS.EMBEDDED_ENTRY]: node => {
               const contentType = node.data.target.sys.contentType.sys.id;
               const entry = node.data.target;
