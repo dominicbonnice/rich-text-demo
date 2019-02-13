@@ -60,6 +60,10 @@ header .title {
 	padding-bottom: 20vw;
 }
 
+li p {
+	margin: 0;
+}
+
 @media only screen and (min-width: 600px) {
   body {
     font-size: 18px;
