@@ -8,7 +8,7 @@ const salesDemoPage = ({ data }) => {
 		<Layout>
 			<Helmet title={data.contentfulSalesDemoPage.title} />
 			<header>
-				<nav><a href="/">« Go back</a></nav>
+				<nav><a href="/" class="back">« Go back</a></nav>
 				<div class="title container">
 					<h1>{data.contentfulSalesDemoPage.title}</h1>
 				</div>
